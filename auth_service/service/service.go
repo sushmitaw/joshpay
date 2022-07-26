@@ -16,7 +16,7 @@ func LoginService(req LoginRequest) (string, error) {
 var hmacSampleSecret []byte
 
 func Authenticate(req http.Request) error {
-	token = req.Header.Get("Authorization")
+	token := req.Header.Get("Authorization")
 	tokenParams := strings.Split(token, " ")
 
 	if tokenParams[0] != tokenPrefix {
@@ -52,7 +52,7 @@ func AuthEncodedToken(token string) error {
 	if string(decodedToken) != validUser {
 		return errors.New("invalid token user")
 	}
-	return
+	return nil
 }
 
 func AuthJwtToken(tokenString string) error {
