@@ -12,17 +12,19 @@ func LoginService(req LoginRequest) (string, error) {
 
 func Authenticate(req http.Request) error {
 	token := req.Header.Get("Authorization")
-	decodedToken, err := decodeToken(token)
-	if err != nil {
-		return err
-	}
-	tokenParams := strings.Split(string(decodedToken), ":")
+
+	tokenParams := strings.Split(token, " ")
 
 	if tokenParams[0] != tokenPrefix {
 		return errors.New("invalid token prefix")
 	}
 
-	if tokenParams[1] != validUser {
+	decodedToken, err := decodeToken(tokenParams[1])
+	if err != nil {
+		return err
+	}
+
+	if string(decodedToken) != validUser {
 		return errors.New("invalid token user")
 	}
 

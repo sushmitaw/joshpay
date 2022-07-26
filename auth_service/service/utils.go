@@ -2,7 +2,6 @@ package service
 
 import (
 	"encoding/base64"
-	"fmt"
 )
 
 func decodeToken(token string) ([]byte, error) {
@@ -10,6 +9,5 @@ func decodeToken(token string) ([]byte, error) {
 }
 
 func encodeToken(token string) string {
-	token = fmt.Sprintf("%s:%s", tokenPrefix, token)
 	return base64.StdEncoding.EncodeToString([]byte(token))
 }
