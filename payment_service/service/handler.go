@@ -12,8 +12,8 @@ func InitiatePaymentHandler(rw http.ResponseWriter, req *http.Request) {
 	err := auth.Authenticate(*req)
 	if err != nil {
 		log.Println("error in authentication", "error", err.Error())
-		rw.Write([]byte("authentication failed"))
 		rw.WriteHeader(http.StatusBadRequest)
+		rw.Write([]byte("authentication failed"))
 		return
 	}
 

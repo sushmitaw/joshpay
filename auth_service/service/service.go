@@ -12,7 +12,6 @@ func LoginService(req LoginRequest) (string, error) {
 
 func Authenticate(req http.Request) error {
 	token := req.Header.Get("Authorization")
-
 	tokenParams := strings.Split(token, " ")
 
 	if tokenParams[0] != tokenPrefix {
