@@ -10,7 +10,7 @@ func LoginHandler(rw http.ResponseWriter, req *http.Request) {
 	loginRequest := LoginRequest{}
 	err := json.NewDecoder(req.Body).Decode(&loginRequest)
 	if err != nil {
-		log.Fatal("error reading request body", "error", err.Error())
+		log.Println("error reading request body", "error", err.Error())
 		rw.Write([]byte("invalid request body"))
 		rw.WriteHeader(http.StatusBadRequest)
 		return
@@ -18,7 +18,7 @@ func LoginHandler(rw http.ResponseWriter, req *http.Request) {
 
 	err = LoginService(loginRequest)
 	if err != nil {
-		log.Fatal("error auth service failed", "error", err.Error())
+		log.Println("error auth service failed", "error", err.Error())
 		rw.Write([]byte("login failed"))
 		rw.WriteHeader(http.StatusInternalServerError)
 		return

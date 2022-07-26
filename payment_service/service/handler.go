@@ -9,25 +9,31 @@ import (
 
 func InitiatePaymentHandler(rw http.ResponseWriter, req *http.Request) {
 
-	auth.Authenticate(req)
-	paymentRequest := PaymentRequest{}
-	err := json.NewDecoder(req.Body).Decode(&paymentRequest)
+	err := auth.Authenticate(*req)
 	if err != nil {
-		log.Fatal("error reading request body", "error", err.Error())
-		rw.Write([]byte("invalid request body"))
+		log.Println("error in authentication", "error", err.Error())
+		rw.Write([]byte("authentication failed"))
 		rw.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	paymentRequest := PaymentRequest{}
+	err = json.NewDecoder(req.Body).Decode(&paymentRequest)
+	if err != nil {
+		log.Println("error reading request body", "error", err.Error())
+		rw.WriteHeader(http.StatusBadRequest)
+		rw.Write([]byte("invalid request body"))
 		return
 	}
 
 	err = InitiatePaymentService(paymentRequest)
 	if err != nil {
-		log.Fatal("error payment service failed", "error", err.Error())
-		rw.Write([]byte("payment failed"))
+		log.Println("error payment service failed", "error", err.Error())
 		rw.WriteHeader(http.StatusInternalServerError)
+		rw.Write([]byte("payment failed"))
 		return
 	}
 
-	rw.Write([]byte("payment sucess"))
-	rw.WriteHeader(http.StatusOK)
+	rw.Write([]byte("payment success"))
 	return
 }
