@@ -1,0 +1,10 @@
+github.com/felixge/httpsnoop v1.0.1 h1:lvB5Jl89CsZtGIWuTcDM1E/vkVs49/Ml7JJe07l8SPQ=
+github.com/felixge/httpsnoop v1.0.1/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
+github.com/gorilla/handlers v1.5.1 h1:9lRY6j8DEeeBT10CvO9hGW0gmky0BprnvDI5vfhUHH4=
+github.com/gorilla/handlers v1.5.1/go.mod h1:t8XrUpc4KVXb7HGyJ4/cEnwQiaxrX/hz1Zv/4g96P1Q=
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726190549-c2bb2b5a11e9 h1:GigzlZfndyyO2SYf77X7ToMZ0pdToseP0zall8cEgzY=
+github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726190549-c2bb2b5a11e9/go.mod h1:EGKzCF1lAr8p/BkYucyyD9ThapUDCbwghlikuo8WLr4=
+github.com/sushmitaw/joshpay/payment_service v0.0.0-20220726214916-a8c111c66b10 h1:/dv2Ron8P99//1agrvRzHUoR2AtlBvnup+NrcVaa8WU=
+github.com/sushmitaw/joshpay/payment_service v0.0.0-20220726214916-a8c111c66b10/go.mod h1:Ae/9Yqz0H6OvfS6U/2Jfq7Q/HaDGyqtulT1nBY6VYqs=
