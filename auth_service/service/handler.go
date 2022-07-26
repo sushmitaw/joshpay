@@ -2,6 +2,7 @@ package service
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -16,7 +17,7 @@ func LoginHandler(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	err = LoginService(loginRequest)
+	token, err := LoginService(loginRequest)
 	if err != nil {
 		log.Println("error auth service failed", "error", err.Error())
 		rw.Write([]byte("login failed"))
@@ -24,7 +25,7 @@ func LoginHandler(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	rw.Write([]byte("login sucess"))
+	rw.Write([]byte(fmt.Sprintf("login sucess, your token is %s", token)))
 	rw.WriteHeader(http.StatusOK)
 	return
 }
