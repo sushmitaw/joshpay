@@ -2,9 +2,6 @@ module github.com/sushmitaw/joshpay/payment_service
 
 go 1.18
 
-replace (
-	github.com/sushmitaw/joshpay/auth_service => ../auth_service
-)
 require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
