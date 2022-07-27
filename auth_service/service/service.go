@@ -10,29 +10,30 @@ import (
 )
 
 func LoginService(req LoginRequest) (string, error) {
-	return encodeToken(validUser), nil
+	return signToken(req)
 }
 
-var hmacSampleSecret []byte
+var hmacSampleSecret = []byte("c2VjcmV0OktleQ==")
 
 func Authenticate(req http.Request) error {
-	token := req.Header.Get("Authorization")
-	tokenParams := strings.Split(token, " ")
+	tokenString := req.Header.Get("Authorization")
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+		// Don't forget to validate the alg is what you expect:
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
+		}
 
-	if tokenParams[0] != tokenPrefix {
-		return errors.New("invalid token prefix")
-	}
+		// hmacSampleSecret is a []byte containing your secret, e.g. []byte("my_secret_key")
+		return hmacSampleSecret, nil
+	})
 
-	decodedToken, err := decodeToken(tokenParams[1])
-	if err != nil {
+	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		fmt.Println(claims["id"], claims["name"])
+	} else {
 		return err
 	}
+	log.Print("Authenticated using  jwt token")
 
-	if string(decodedToken) != validUser {
-		return errors.New("invalid token user")
-	}
-
-	log.Print("Authenticated using base64 encoded token")
 	return nil
 
 }
@@ -52,6 +53,8 @@ func AuthEncodedToken(token string) error {
 	if string(decodedToken) != validUser {
 		return errors.New("invalid token user")
 	}
+	log.Print("Authenticated using base64 encoded token")
+
 	return nil
 }
 
@@ -67,7 +70,7 @@ func AuthJwtToken(tokenString string) error {
 	})
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		fmt.Println(claims["id"], claims["name"])
+		fmt.Println(claims["username"])
 	} else {
 		return err
 	}

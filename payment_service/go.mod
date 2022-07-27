@@ -8,4 +8,7 @@ require (
 	github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726190549-c2bb2b5a11e9
 )
 
-require github.com/felixge/httpsnoop v1.0.1 // indirect
+require (
+	github.com/felixge/httpsnoop v1.0.3 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+)
