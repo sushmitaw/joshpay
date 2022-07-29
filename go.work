@@ -1,0 +1,7 @@
+go 1.18
+
+use (
+	./auth_service
+	./fraud_detection_service
+	./payment_service
+)
