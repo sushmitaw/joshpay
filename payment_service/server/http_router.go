@@ -12,19 +12,5 @@ func initRouter() (router *mux.Router) {
 
 	router.HandleFunc("/pay", service.InitiatePaymentHandler).Methods(http.MethodPost)
 
-	//invite user
-	//router.Handle("/dashboard/users/invite",
-	//	middleware.Adapt(
-	//		dashboardregister.HandleUserInvite(dependencies.RegisterMerchantService),
-	//		middleware.AuthenticateUser(
-	//			config.JWTKey(), []constants.Role{
-	//				constants.Admin,
-	//				constants.Owner,
-	//			}),
-	//	),
-	//).Methods(
-	//	http.MethodPost,
-	//)
-
 	return
 }
