@@ -18,7 +18,7 @@ func signToken(user LoginRequest) (tokenString string, err error) {
 
 	// Declare the expiration time of the token
 	// here, we have kept it as 5 minutes
-	expirationTime := time.Now().Add(5 * time.Minute)
+	expirationTime := time.Now().Add(1 * time.Hour)
 	// Create the JWT claims, which includes the username and expiry time
 	claims := &jwt.StandardClaims{
 		// In JWT, the expiry time is expressed as unix milliseconds
