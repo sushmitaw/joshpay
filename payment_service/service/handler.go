@@ -2,14 +2,14 @@ package service
 
 import (
 	"encoding/json"
-	auth "github.com/sushmitaw/joshpay/auth_service/service"
+	auth_service "github.com/sushmitaw/joshpay/auth_service/service"
 	"log"
 	"net/http"
 )
 
 func InitiatePaymentHandler(rw http.ResponseWriter, req *http.Request) {
 
-	err := auth.Authenticate(*req)
+	err := auth_service.Authenticate(*req)
 	if err != nil {
 		log.Println("error in authentication", "error", err.Error())
 		rw.WriteHeader(http.StatusBadRequest)

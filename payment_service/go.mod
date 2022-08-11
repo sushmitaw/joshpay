@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
-	github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726190549-c2bb2b5a11e9
+	github.com/sushmitaw/joshpay/auth_service v0.0.0-20220810033750-5105d7f94c64
 )
 
 require (

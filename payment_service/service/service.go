@@ -1,9 +1,5 @@
 package service
 
-import (
-	"github.com/sushmitaw/joshpay/fraud_detection_service"
-)
-
 func InitiatePaymentService(req PaymentRequest) error {
 	//simulate payment success
 	go checkIfSuspicious(req)
@@ -12,11 +8,11 @@ func InitiatePaymentService(req PaymentRequest) error {
 
 func checkIfSuspicious(req PaymentRequest) {
 	//get history from database
-	history := []fraud_detection_service.PaymentRequest{}
-
-	isSuspicious := fraud_detection_service.CheckTransaction(req.Amount, req.CreditCardToken, history)
-	if isSuspicious {
-		//add in db for further investigation
-	}
+	//history := []fraud_detection_service.PaymentRequest{}
+	//
+	//isSuspicious := fraud_detection_service.CheckTransaction(req.Amount, req.CreditCardToken, history)
+	//if isSuspicious {
+	//	//add in db for further investigation
+	//}
 
 }

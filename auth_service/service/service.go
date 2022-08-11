@@ -9,12 +9,6 @@ import (
 	"strings"
 )
 
-func LoginService(req LoginRequest) (string, error) {
-	return signToken(req)
-}
-
-var hmacSampleSecret = []byte("c2VjcmV0OktleQ==")
-
 func Authenticate(req http.Request) error {
 	token := req.Header.Get("Authorization")
 	tokenParams := strings.Split(token, " ")
@@ -72,4 +66,10 @@ func AuthJwtToken(tokenString string) error {
 
 	return nil
 
+}
+
+var hmacSampleSecret = []byte("c2VjcmV0OktleQ==")
+
+func LoginService(req LoginRequest) (string, error) {
+	return signToken(req)
 }

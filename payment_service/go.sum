@@ -11,3 +11,5 @@ github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726224702-138972b2b11e h1:
 github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726224702-138972b2b11e/go.mod h1:qVxYVZYskvEUYIUeLifBdMB3bZpV0eDXLel7zJI+SSQ=
 github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726224926-5631ffb862da h1:7jFu69Zavs2tEnd3D0ZWOzLrQkRV0J7VpEbJtmImtRs=
 github.com/sushmitaw/joshpay/auth_service v0.0.0-20220726224926-5631ffb862da/go.mod h1:qVxYVZYskvEUYIUeLifBdMB3bZpV0eDXLel7zJI+SSQ=
+github.com/sushmitaw/joshpay/auth_service v0.0.0-20220810033750-5105d7f94c64 h1:RahlQ8GLylbJuhUzjYqSTtHulfF4CQ+Ktg1Am+KXF6w=
+github.com/sushmitaw/joshpay/auth_service v0.0.0-20220810033750-5105d7f94c64/go.mod h1:DY9k4dkFMVVqdLwd7suFnllzLJkcyOsqPMBZfVg1TVU=
